@@ -15,11 +15,11 @@ class UsersPresenter : IUsersPresenter {
     private lateinit var view: IUsersView
     private var loadUsersUseCase: LoadUsersUseCase = LoadUsersUseCase(GitRepository())
 
-    fun onAttach(view: IUsersView) {
+    override fun onAttach(view: IUsersView) {
         this.view = view
     }
 
-    fun onDetach() {
+    override fun onDetach() {
 
     }
 

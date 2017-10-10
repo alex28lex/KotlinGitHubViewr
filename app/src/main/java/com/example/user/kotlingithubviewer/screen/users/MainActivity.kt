@@ -24,11 +24,17 @@ class MainActivity : AppCompatActivity(), IUsersView {
         setContentView(R.layout.activity_main)
         adapter = UsersAdapter()
         presenter = UsersPresenter()
+        presenter.onAttach(this)
         adapter.setClickedUserListener(Consumer { })
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         recyclerView.adapter = adapter
         presenter.loadUsers()
 
+    }
+
+    override fun onDestroy() {
+        presenter.onDetach()
+        super.onDestroy()
     }
 
     override fun onUsersLoad(users: List<User>) {

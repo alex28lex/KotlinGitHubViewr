@@ -8,6 +8,11 @@ Developed by Magora Team (magora-systems.com). 2017.
 @author mihaylov
  */
 interface IUsersPresenter {
-    fun loadUsers();
+    fun loadUsers()
+
     fun onUserClicked(user: User)
+
+    fun onAttach(view: IUsersView)
+
+    fun onDetach()
 }
