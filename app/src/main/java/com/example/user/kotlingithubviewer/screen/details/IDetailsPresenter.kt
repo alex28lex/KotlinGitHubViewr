@@ -7,7 +7,7 @@ import com.example.user.kotlingithubviewer.screen.base.IBasePresenter
  *
  * @author mihaylov
  */
-interface IDetailsPresenter: IBasePresenter<IDetailsView>
-{
+interface IDetailsPresenter : IBasePresenter<IDetailsView> {
 
+    fun loadUserDetail(login: String)
 }
