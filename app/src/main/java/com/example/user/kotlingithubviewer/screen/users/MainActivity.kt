@@ -2,9 +2,7 @@ package com.example.user.kotlingithubviewer.screen.users
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.util.Log
 
 import com.example.user.kotlingithubviewer.R
@@ -27,11 +25,15 @@ class MainActivity : AppCompatActivity(), IUsersView {
         presenter = UsersPresenter()
         presenter.onAttach(this)
         adapter.setClickedUserListener(Consumer { })
+        initRecycler()
+        presenter.loadUsers()
+
+    }
+
+    private fun initRecycler() {
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         recyclerView.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST, R.drawable.recycler_divider))
         recyclerView.adapter = adapter
-        presenter.loadUsers()
-
     }
 
     override fun onDestroy() {
@@ -43,11 +45,19 @@ class MainActivity : AppCompatActivity(), IUsersView {
         adapter.setData(users)
     }
 
-    override fun enableProgress(isEnable: Boolean) {
+    override fun showDetailScreen(user: User) {
+        Log.v("showDetailScreen", "not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun enableProgress(isEnable: Boolean?) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun showDetailScreen(user: User) {
-        Log.v("showDetailScreen", "not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun showError(error: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showError(resId: Int) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }
