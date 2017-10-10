@@ -15,11 +15,19 @@ class DetailsPresenter : BasePresenter<IDetailsView>(), IDetailsPresenter {
 
     private var loadUserDetailsUseCase: LoadUserDetailsUseCase = LoadUserDetailsUseCase(GitRepository())
 
-    override fun loadUserDetail(login:String) {
+    override fun loadUserDetail(login: String) {
+        (view as IDetailsView).enableProgress(true)
         loadUserDetailsUseCase.execute(login)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ n -> (view as IDetailsView).showDetails(n) }, { e -> e.printStackTrace() }, { })
+                .subscribe({ n ->
+                    (view as IDetailsView).enableProgress(false)
+                    (view as IDetailsView).showDetails(n)
+                }
+                        , { e ->
+                    (view as IDetailsView).enableProgress(false)
+                    e.printStackTrace()
+                }, { })
     }
 
 }

@@ -7,7 +7,7 @@ package com.example.user.kotlingithubviewer.screen.base
  */
 interface IBaseView {
 
-    fun enableProgress(isEnable: Boolean?)
+    fun enableProgress(isEnable: Boolean)
 
     fun showError(error: String)
 

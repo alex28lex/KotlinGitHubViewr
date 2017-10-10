@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
+import android.view.View
 
 import com.example.user.kotlingithubviewer.R
 
@@ -59,8 +60,8 @@ class UsersActivity : AppCompatActivity(), IUsersView {
         Log.v("showDetailScreen", "not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun enableProgress(isEnable: Boolean?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun enableProgress(isEnable: Boolean) {
+        progress.visibility = if (isEnable) View.VISIBLE else View.GONE
     }
 
     override fun showError(error: String) {

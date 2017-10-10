@@ -3,6 +3,7 @@ package com.example.user.kotlingithubviewer.screen.details
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 
@@ -29,8 +30,8 @@ class DetailActivity : AppCompatActivity(), IDetailsView {
         super.onDestroy()
     }
 
-    override fun enableProgress(isEnable: Boolean?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun enableProgress(isEnable: Boolean) {
+        progress.visibility = if (isEnable) View.VISIBLE else View.GONE
     }
 
     override fun showError(error: String) {
