@@ -10,6 +10,7 @@ import android.util.Log
 import com.example.user.kotlingithubviewer.R
 
 import com.example.user.kotlingithubviewer.model.dataobject.User
+import com.example.user.kotlingithubviewer.widgets.DividerItemDecoration
 import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity(), IUsersView {
         presenter.onAttach(this)
         adapter.setClickedUserListener(Consumer { })
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        recyclerView.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST, R.drawable.recycler_divider))
         recyclerView.adapter = adapter
         presenter.loadUsers()
 
