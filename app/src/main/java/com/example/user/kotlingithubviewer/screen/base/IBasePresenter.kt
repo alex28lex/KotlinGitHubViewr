@@ -5,9 +5,11 @@ package com.example.user.kotlingithubviewer.screen.base
  *
  * @author mihaylov
  */
-interface IBasePresenter<in V : IBaseView> {
+interface IBasePresenter<V : IBaseView> {
 
     fun onAttach(view: V)
 
     fun onDetach()
+
+    fun getMyView():V
 }

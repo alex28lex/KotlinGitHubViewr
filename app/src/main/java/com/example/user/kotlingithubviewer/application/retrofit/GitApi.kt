@@ -2,6 +2,7 @@ package com.example.user.kotlingithubviewer.application.retrofit
 
 import com.example.user.kotlingithubviewer.model.dataobject.User
 import com.example.user.kotlingithubviewer.model.dataobject.UserDetails
+import com.example.user.kotlingithubviewer.model.dataobject.UserRepos
 import io.reactivex.Observable
 import retrofit2.Call
 import retrofit2.http.GET
@@ -19,4 +20,7 @@ interface GitApi {
 
     @GET("/users/{login}")
     fun getUserDetails(@Path("login") login: String): Observable<UserDetails>
+
+    @GET("/users/{login}/repos")
+    fun getUserRepos(@Path("login") login: String): Observable<List<UserRepos>>
 }

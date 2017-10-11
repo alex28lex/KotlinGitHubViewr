@@ -2,6 +2,7 @@ package com.example.user.kotlingithubviewer.application.retrofit
 
 import com.example.user.kotlingithubviewer.model.dataobject.User
 import com.example.user.kotlingithubviewer.model.dataobject.UserDetails
+import com.example.user.kotlingithubviewer.model.dataobject.UserRepos
 import io.reactivex.Observable
 
 /**
@@ -17,6 +18,10 @@ class ServerMethods {
 
         fun getUserDetails(login: String): Observable<UserDetails> {
             return ApiFactory.api.getUserDetails(login)
+        }
+
+        fun getUserRepos(login: String): Observable<List<UserRepos>> {
+            return ApiFactory.api.getUserRepos(login)
         }
     }
 }

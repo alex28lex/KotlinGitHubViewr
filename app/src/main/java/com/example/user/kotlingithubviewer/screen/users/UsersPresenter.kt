@@ -20,11 +20,11 @@ class UsersPresenter : BasePresenter<IUsersView>(), IUsersPresenter {
         loadUsersUseCase.execute()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ n -> (view as IUsersView).onUsersLoad(n) }, { e -> e.printStackTrace() }, { })
+                .subscribe({ n ->  getMyView().onUsersLoad(n) }, { e -> e.printStackTrace() }, { })
     }
 
     override fun onUserClicked(user: User) {
-        (view as IUsersView).showDetailScreen(user)
+        getMyView().showDetailScreen(user)
     }
 
 

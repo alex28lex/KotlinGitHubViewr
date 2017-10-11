@@ -3,6 +3,7 @@ package com.example.user.kotlingithubviewer.model.repository
 import com.example.user.kotlingithubviewer.application.retrofit.ServerMethods
 import com.example.user.kotlingithubviewer.model.dataobject.User
 import com.example.user.kotlingithubviewer.model.dataobject.UserDetails
+import com.example.user.kotlingithubviewer.model.dataobject.UserRepos
 import io.reactivex.Observable
 
 /**
@@ -17,5 +18,9 @@ class GitRepository {
 
     fun getUserDetails(login: String): Observable<UserDetails> {
         return ServerMethods.Companion.getUserDetails(login)
+    }
+
+    fun getUserRepos(login: String): Observable<List<UserRepos>> {
+        return ServerMethods.Companion.getUserRepos(login)
     }
 }

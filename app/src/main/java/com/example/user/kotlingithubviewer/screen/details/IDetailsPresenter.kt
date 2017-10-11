@@ -10,4 +10,5 @@ import com.example.user.kotlingithubviewer.screen.base.IBasePresenter
 interface IDetailsPresenter : IBasePresenter<IDetailsView> {
 
     fun loadUserDetail(login: String)
+    fun loadUserRepos(login: String)
 }
